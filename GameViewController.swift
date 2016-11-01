@@ -1,5 +1,5 @@
 //
-//  ReferenciaNavigationController.swift
+//  GameViewController.swift
 //  Prepanet-ReaccionesDeAldehidos
 //
 //  Created by Mauro Amarante on 10/31/16.
@@ -8,15 +8,13 @@
 
 import UIKit
 
-class ReferenciaNavigationController: UINavigationController {
+class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		self.navigationBar.barStyle = UIBarStyle.black
-		self.navigationBar.barTintColor = UIColor(red: 42/255, green: 70/255, blue: 101/255, alpha: 1)
-		self.navigationBar.tintColor = UIColor.white
+		self.title = "Juego"
     }
 
     override func didReceiveMemoryWarning() {
