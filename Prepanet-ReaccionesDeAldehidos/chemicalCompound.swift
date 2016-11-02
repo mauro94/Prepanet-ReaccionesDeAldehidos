@@ -1,5 +1,5 @@
 //
-//  gameData.swift
+//  chemicalCompound.swift
 //  Prepanet-ReaccionesDeAldehidos
 //
 //  Created by Mauro Amarante on 11/1/16.
@@ -9,8 +9,8 @@
 import Foundation
 import RealmSwift
 
-class gameData: Object {
-	dynamic var maxPoints = 0
+class chemicalCompound: Object {
+	dynamic var name = ""
+	dynamic var level = 0
 	var chemicalComponents = List<chemicalComponent>()
-	var chemicalCompunds = List<chemicalCompound>()
 }

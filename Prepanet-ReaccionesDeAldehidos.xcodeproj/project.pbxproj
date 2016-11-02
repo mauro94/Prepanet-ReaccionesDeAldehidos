@@ -15,14 +15,19 @@
 		344F52591DC79B66005BC792 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F52581DC79B66005BC792 /* TabBarViewController.swift */; };
 		344F525B1DC7B86A005BC792 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F525A1DC7B86A005BC792 /* NavigationController.swift */; };
 		34517A7E1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34517A7D1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift */; };
+		349E20C81DC94B8800EBAAC7 /* chemicalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E20C71DC94B8800EBAAC7 /* chemicalComponent.swift */; };
+		349E20CA1DC94C7D00EBAAC7 /* chemicalCompound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E20C91DC94C7D00EBAAC7 /* chemicalCompound.swift */; };
+		349E20CC1DC96ADA00EBAAC7 /* setupDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E20CB1DC96ADA00EBAAC7 /* setupDB.swift */; };
 		34A3E7F31DC814E700E54712 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A3E7F21DC814E700E54712 /* InformationViewController.swift */; };
 		34BC78C21DC846D2004128F3 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC78C11DC846D2004128F3 /* ExamViewController.swift */; };
-		34BC78C41DC854F0004128F3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC78C31DC854F0004128F3 /* GameViewController.swift */; };
+		34BC78C41DC854F0004128F3 /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC78C31DC854F0004128F3 /* GameMenuViewController.swift */; };
 		34BC78F21DC92708004128F3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BC78F11DC92708004128F3 /* Realm.framework */; };
 		34BC78F31DC92708004128F3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34BC78F11DC92708004128F3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34BC78F61DC9270E004128F3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BC78F51DC9270E004128F3 /* RealmSwift.framework */; };
 		34BC78F71DC9270E004128F3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34BC78F51DC9270E004128F3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34BC78FB1DC93318004128F3 /* gameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC78FA1DC93318004128F3 /* gameData.swift */; };
+		34C4FC7B1DC9439800120860 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C4FC7A1DC9439800120860 /* GameViewController.swift */; };
+		34C4FC811DC9443900120860 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C4FC801DC9443900120860 /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,12 +56,17 @@
 		344F52581DC79B66005BC792 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		344F525A1DC7B86A005BC792 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		34517A7D1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceCollectionViewCell.swift; sourceTree = "<group>"; };
+		349E20C71DC94B8800EBAAC7 /* chemicalComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chemicalComponent.swift; sourceTree = "<group>"; };
+		349E20C91DC94C7D00EBAAC7 /* chemicalCompound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chemicalCompound.swift; sourceTree = "<group>"; };
+		349E20CB1DC96ADA00EBAAC7 /* setupDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setupDB.swift; sourceTree = "<group>"; };
 		34A3E7F21DC814E700E54712 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		34BC78C11DC846D2004128F3 /* ExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamViewController.swift; path = ../ExamViewController.swift; sourceTree = "<group>"; };
-		34BC78C31DC854F0004128F3 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ../GameViewController.swift; sourceTree = "<group>"; };
+		34BC78C31DC854F0004128F3 /* GameMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMenuViewController.swift; path = ../GameMenuViewController.swift; sourceTree = "<group>"; };
 		34BC78F11DC92708004128F3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		34BC78F51DC9270E004128F3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		34BC78FA1DC93318004128F3 /* gameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameData.swift; sourceTree = "<group>"; };
+		34C4FC7A1DC9439800120860 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		34C4FC801DC9443900120860 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +105,12 @@
 			children = (
 				34BC78F91DC932BE004128F3 /* Realm */,
 				341691361DC3AFBD000ACF86 /* AppDelegate.swift */,
+				349E20CB1DC96ADA00EBAAC7 /* setupDB.swift */,
 				3416913C1DC3AFBD000ACF86 /* Main.storyboard */,
 				34A3E7F21DC814E700E54712 /* InformationViewController.swift */,
-				34BC78C31DC854F0004128F3 /* GameViewController.swift */,
+				34BC78C31DC854F0004128F3 /* GameMenuViewController.swift */,
+				34C4FC7A1DC9439800120860 /* GameViewController.swift */,
+				34C4FC801DC9443900120860 /* GameScene.swift */,
 				344F525A1DC7B86A005BC792 /* NavigationController.swift */,
 				344F52581DC79B66005BC792 /* TabBarViewController.swift */,
 				34517A7D1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift */,
@@ -114,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				34BC78FA1DC93318004128F3 /* gameData.swift */,
+				349E20C91DC94C7D00EBAAC7 /* chemicalCompound.swift */,
+				349E20C71DC94B8800EBAAC7 /* chemicalComponent.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -209,15 +224,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349E20CA1DC94C7D00EBAAC7 /* chemicalCompound.swift in Sources */,
+				34C4FC7B1DC9439800120860 /* GameViewController.swift in Sources */,
 				3416914B1DC3B4F0000ACF86 /* ReferenceViewController.swift in Sources */,
 				344F525B1DC7B86A005BC792 /* NavigationController.swift in Sources */,
 				34A3E7F31DC814E700E54712 /* InformationViewController.swift in Sources */,
 				34BC78C21DC846D2004128F3 /* ExamViewController.swift in Sources */,
-				34BC78C41DC854F0004128F3 /* GameViewController.swift in Sources */,
+				34C4FC811DC9443900120860 /* GameScene.swift in Sources */,
+				34BC78C41DC854F0004128F3 /* GameMenuViewController.swift in Sources */,
+				349E20C81DC94B8800EBAAC7 /* chemicalComponent.swift in Sources */,
 				34517A7E1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift in Sources */,
 				34BC78FB1DC93318004128F3 /* gameData.swift in Sources */,
 				344F52591DC79B66005BC792 /* TabBarViewController.swift in Sources */,
 				341691371DC3AFBD000ACF86 /* AppDelegate.swift in Sources */,
+				349E20CC1DC96ADA00EBAAC7 /* setupDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -238,10 +238,10 @@
             </objects>
             <point key="canvasLocation" x="3086" y="1218"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Game Menu View Controller-->
         <scene sceneID="7Cz-ti-ISN">
             <objects>
-                <viewController id="X9G-Ui-p1H" customClass="GameViewController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X9G-Ui-p1H" customClass="GameMenuViewController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TO5-xr-6TA"/>
                         <viewControllerLayoutGuide type="bottom" id="BWe-3g-DKs"/>
@@ -329,15 +329,15 @@
             </objects>
             <point key="canvasLocation" x="3086" y="553"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="mHN-2l-8sR">
             <objects>
-                <viewController id="HyC-nb-o4H" sceneMemberID="viewController">
+                <viewController id="HyC-nb-o4H" customClass="GameViewController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RB1-oH-LNb"/>
                         <viewControllerLayoutGuide type="bottom" id="X8J-lw-klH"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7CU-Ye-cbV">
+                    <view key="view" contentMode="scaleToFill" id="7CU-Ye-cbV" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

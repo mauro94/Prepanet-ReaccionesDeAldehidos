@@ -2,11 +2,13 @@
 //  GameViewController.swift
 //  Prepanet-ReaccionesDeAldehidos
 //
-//  Created by Mauro Amarante on 10/31/16.
+//  Created by Mauro Amarante on 11/1/16.
 //  Copyright © 2016 Mauro Amarante. All rights reserved.
 //
 
 import UIKit
+import SpriteKit
+import GameplayKit
 
 class GameViewController: UIViewController {
 
@@ -14,7 +16,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		self.title = "Juego"
+		let scene = GameScene(size: view.bounds.size)
+		let skView = view as! SKView
+		skView.ignoresSiblingOrder = true
+		scene.scaleMode = .resizeFill
+		skView.presentScene(scene)
     }
 
     override func didReceiveMemoryWarning() {
