@@ -12,15 +12,20 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-		let scene = GameScene(size: view.bounds.size)
-		let skView = view as! SKView
-		skView.ignoresSiblingOrder = true
-		scene.scaleMode = .resizeFill
-		skView.presentScene(scene)
+	override func viewWillLayoutSubviews() {
+		super.viewDidLoad()
+		
+		let skView = self.view as! SKView
+		if skView.scene == nil {
+			
+			let scene = GameScene(size:skView.frame.size)
+			skView.showsFPS = true
+			skView.showsNodeCount = true
+			skView.showsPhysics = true
+			skView.ignoresSiblingOrder = true
+			scene.scaleMode = .aspectFill
+			skView.presentScene(scene)
+		}
     }
 
     override func didReceiveMemoryWarning() {

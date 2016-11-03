@@ -38,7 +38,7 @@ class setupDB {
 	func setupGameData() ->  gameData{
 		//data
 		//chemical components
-		let carbon = ChemComponentSruct(name: "Hidrógeno", image: "hydrogen", count: 0)
+		let carbon = ChemComponentSruct(name: "Carbono", image: "carbon", count: 0)
 		let hydrogen = ChemComponentSruct(name: "Hidrógeno", image: "hydrogen", count: 0)
 		let oxygen = ChemComponentSruct(name: "Oxígeno", image: "oxygen", count: 0)
 		let simpleLink = ChemComponentSruct(name: "Enlace simple", image: "simpleLink", count: 0)
