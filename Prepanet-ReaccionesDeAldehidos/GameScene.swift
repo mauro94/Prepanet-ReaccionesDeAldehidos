@@ -35,6 +35,10 @@ extension UIImage {
 	}
 }
 
+protocol GameSceneDelegate {
+	func gameOver()
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
 	//game variables
 	var player: SKSpriteNode!
@@ -44,6 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	let score = SKSpriteNode(imageNamed: "score")
 	let bgImage = SKSpriteNode(imageNamed: "gameBackground")
 	let pauseButton = SKSpriteNode(imageNamed: "pauseButton")
+	let exitButton = SKSpriteNode(imageNamed: "exit")
 	var pauseImg = SKSpriteNode(imageNamed: "pause")
 	let scoreFill = SKSpriteNode(imageNamed: "scoreFill")
 	var lbPointsTitle: SKLabelNode = SKLabelNode(text: "Puntos:")
@@ -69,6 +74,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	var data: Results<gameData>!
 	var compounds: Array<chemicalCompound>!
 	var components: Array<chemicalComponent>!
+	
+	//protocol
+	var gameSceneDelegate: GameSceneDelegate?
 	
 	override func didMove(to view: SKView) {
 		//define contact delegate
@@ -249,13 +257,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 				pushPlayer(val: 10)
 			}
 			
-			if pauseButton.contains(position) {
+			if (pauseButton.contains(position)) {
 				if (isGamePaused) {
 					unpauseGame()
 				}
 				else {
 					pauseGame()
 				}
+			}
+			
+			if (exitButton.contains(position)) {
+				gameSceneDelegate?.gameOver()
 			}
 		}
 	}
@@ -278,10 +290,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		self.isPaused = true
 		
 		//diplay image
-		pauseImg = SKSpriteNode(imageNamed: "pause")
-		pauseImg.size = CGSize(width: pauseImg.frame.size.width*2 , height: pauseImg.frame.size.height*2)
 		pauseImg.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
 		self.addChild(pauseImg)
+		
+		exitButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - pauseImg.frame.size.height - 10)
+		self.addChild(exitButton)
+
 	}
 	
 	func unpauseGame() {
@@ -290,6 +304,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		
 		//remove image
 		pauseImg.removeFromParent()
+		exitButton.removeFromParent()
 	}
 	
 	override func update(_ currentTime: CFTimeInterval) {

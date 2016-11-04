@@ -10,17 +10,18 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GameSceneDelegate {
+	@IBOutlet weak var skView: SKView!
 
-	override func viewWillLayoutSubviews() {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidLoad()
 		
-		let skView = self.view as! SKView
 		if skView.scene == nil {
 			let scene = GameScene(size: skView.frame.size)
-			scene.scaleMode = SKSceneScaleMode.resizeFill
+			scene.scaleMode = SKSceneScaleMode.aspectFill
 			skView.ignoresSiblingOrder = true
 			skView.presentScene(scene)
+			scene.gameSceneDelegate = self
 		}
     }
 
@@ -28,6 +29,10 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func gameOver() {
+		self.dismiss(animated: true, completion: nil);
+	}
     
 
     /*

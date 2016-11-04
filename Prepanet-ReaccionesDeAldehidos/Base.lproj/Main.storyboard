@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X9G-Ui-p1H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -241,7 +241,7 @@
         <!--Game Menu View Controller-->
         <scene sceneID="7Cz-ti-ISN">
             <objects>
-                <viewController id="X9G-Ui-p1H" customClass="GameMenuViewController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X9G-Ui-p1H" customClass="GameMenuViewController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TO5-xr-6TA"/>
                         <viewControllerLayoutGuide type="bottom" id="BWe-3g-DKs"/>
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbd-Fn-OQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3086" y="553"/>
+            <point key="canvasLocation" x="4279" y="976"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="mHN-2l-8sR">
@@ -340,12 +340,27 @@
                     <view key="view" contentMode="scaleToFill" id="7CU-Ye-cbV" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNW-Xd-bAc" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uNW-Xd-bAc" secondAttribute="trailing" id="04a-2t-1wM"/>
+                            <constraint firstItem="uNW-Xd-bAc" firstAttribute="top" secondItem="7CU-Ye-cbV" secondAttribute="topMargin" id="9VJ-PI-WzV"/>
+                            <constraint firstItem="uNW-Xd-bAc" firstAttribute="leading" secondItem="7CU-Ye-cbV" secondAttribute="leading" id="9nE-a5-MsU"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uNW-Xd-bAc" secondAttribute="bottom" id="eR6-aA-YRd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="skView" destination="uNW-Xd-bAc" id="6jC-wf-qSQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2O-5n-Yj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3780" y="553"/>
+            <point key="canvasLocation" x="3110" y="553"/>
         </scene>
         <!--Exam View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -586,7 +601,7 @@
         <!--Juego-->
         <scene sceneID="gKk-sG-7i8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PN1-c5-TVg" customClass="NavigationController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PN1-c5-TVg" customClass="NavigationController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Juego" image="gameIcon" id="Ppy-8W-fmn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fhc-TH-E1E">
