@@ -8,9 +8,11 @@
 
 import SpriteKit
 import RealmSwift
+import CoreMotion
+import Foundation
 
+//Randomizes the order of an array's elements.
 extension Array {
-	//Randomizes the order of an array's elements.
 	mutating func shuffle() {
 		for _ in 0..<10 {
 			sort { (_,_) in arc4random() < arc4random() }
@@ -18,19 +20,50 @@ extension Array {
 	}
 }
 
-let sprite1Category = 0x1 << 0
-let sprite2Category = 0x1 << 1
+//Resize image
+extension UIImage {
+	func imageResize (sizeChange:CGSize)-> UIImage{
+		
+		let hasAlpha = true
+		let scale: CGFloat = 0.0 // Use scale factor of main screen
+		
+		UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+		self.draw(in: CGRect(origin: CGPoint.zero, size: sizeChange))
+		
+		let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+		return scaledImage!
+	}
+}
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 	//game variables
-	let player = SKSpriteNode(imageNamed: "player")
+	var player: SKSpriteNode!
+	let playerTexture1 = SKTexture(imageNamed: "player")
+	let playerTexture2 = SKTexture(imageNamed: "player2")
+	let playerTexture3 = SKTexture(imageNamed: "player3")
+	let score = SKSpriteNode(imageNamed: "score")
 	let bgImage = SKSpriteNode(imageNamed: "gameBackground")
+	let pauseButton = SKSpriteNode(imageNamed: "pauseButton")
+	var pauseImg = SKSpriteNode(imageNamed: "pause")
+	let scoreFill = SKSpriteNode(imageNamed: "scoreFill")
 	var lbPointsTitle: SKLabelNode = SKLabelNode(text: "Puntos:")
-	var lbPoints: SKLabelNode = SKLabelNode(text: "0")
+	var lbComponentTitle: SKLabelNode = SKLabelNode(text: "Compuesto:")
 	var lbComponent: SKLabelNode = SKLabelNode(text: "")
+	var lbPoints: SKLabelNode = SKLabelNode(text: "0")
 	var points: Int = 0
 	var gameOver: Bool = false
 	var componentCount: Int! = 0
+	var compundCount: Int! = 0
+	let sprite1Category = 0x1 << 0
+	let sprite2Category = 0x1 << 1
+	let sprite3Category = 0x1 << 2
+	var solutionCompund = [String: Int]()
+	var totalSolutionCount: Int = 0
+	var obtainedChemicals: Int = 0
+	var isGamePaused: Bool = false
+	
+	//motion variables
+	var motionManager: CMMotionManager!
 	
 	//data variables
 	var data: Results<gameData>!
@@ -41,15 +74,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		//define contact delegate
 		self.physicsWorld.contactDelegate = self
 		
+		//activate motion deection
+		motionManager = CMMotionManager()
+		motionManager.startAccelerometerUpdates()
+		
+		//define player
+		let animatePlayer = SKAction.sequence([
+			SKAction.wait(forDuration: 1, withRange: 1),
+			SKAction.animate(with: [playerTexture2, playerTexture3], timePerFrame: 1)
+			])
+		
+		let changePlayer = SKAction.repeatForever(animatePlayer)
+		
+		player = SKSpriteNode(texture: playerTexture1)
+		
 		//define player position
-		player.position = CGPoint(x: self.frame.width * 0.5, y: self.frame.height * 0.17)
+		player.position = CGPoint(x: self.frame.width * 0.5, y: self.frame.height * 0.2)
+		
+		player.run(changePlayer)
 		
 		//background
+		bgImage.size = self.frame.size
 		bgImage.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+		bgImage.zPosition = -1
 		self.addChild(bgImage)
 		
-		//labels
-		setLabels()
+		//pause button
+		pauseButton.size = CGSize(width: pauseButton.frame.size.width*1.5 , height: pauseButton.frame.size.height*1.5)
+		pauseButton.position = CGPoint(x: self.frame.width * 0.08, y: self.frame.height * 0.92)
+		self.addChild(pauseButton)
+		
+		//score
+		score.position = CGPoint(x: self.frame.width * 0.89, y: self.frame.height * 0.06)
+		score.size = CGSize(width: self.frame.size.width * 0.2, height: self.frame.size.height * 0.12)
+		score.zPosition = 1
+		self.addChild(score)
+		
+		//scorefill
+		scoreFill.position = CGPoint(x: self.frame.width * 0.86, y: self.frame.height * 0.06)
+		scoreFill.size = CGSize(width: score.frame.size.width*0.8, height: 0)
+		self.addChild(scoreFill)
+		
+		//defines bounds of player
+		let collisionFrame = frame.insetBy(dx: 0, dy: -self.size.height)
+		physicsBody = SKPhysicsBody(edgeLoopFrom: collisionFrame)
+		physicsBody?.categoryBitMask = UInt32(sprite3Category)
 		
 		//physics player
 		player.physicsBody = SKPhysicsBody(rectangleOf: player.frame.size)
@@ -57,7 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		player.physicsBody?.affectedByGravity = false
 		player.physicsBody?.categoryBitMask = UInt32(sprite1Category)
 		player.physicsBody?.contactTestBitMask = UInt32(sprite2Category)
-		player.physicsBody?.collisionBitMask = 0
+		player.physicsBody?.collisionBitMask = UInt32(sprite3Category)
 		player.physicsBody?.usesPreciseCollisionDetection = true
 		player.physicsBody?.isDynamic = true
 		
@@ -78,26 +147,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		components = Array(result2!)
 		components.shuffle()
 		
+		//labels
+		setLabels()
+		
+		//define solution
+		for i in compounds[compundCount].chemicalComponents {
+			solutionCompund[i.image] = i.count
+			totalSolutionCount += i.count
+		}
+		
 		//run production of chemicals
-		run(SKAction.repeatForever(SKAction.sequence([SKAction.run(addChemical), SKAction.wait(forDuration: 2.0)])))
+		run(SKAction.repeatForever(SKAction.sequence([SKAction.run(addChemical), SKAction.wait(forDuration: 1.0)])))
 	}
 	
 	func setLabels() {
-		lbPointsTitle.fontSize = 25
+		var loc: CGFloat!
+		
+		lbComponentTitle.fontSize = 17
+		lbComponentTitle.fontColor = UIColor.black
+		loc = lbComponentTitle.frame.size.width/2 + 5
+		lbComponentTitle.position = CGPoint(x: loc, y: self.frame.height * 0.07)
+		self.addChild(lbComponentTitle)
+		
+		lbComponent.fontSize = 17
+		lbComponent.fontColor = UIColor.black
+		lbComponent.text = "\(compounds[compundCount].name)"
+		loc = lbComponentTitle.frame.size.width + lbComponent.frame.size.width/2 + 10
+		lbComponent.position = CGPoint(x: loc, y: self.frame.height * 0.07)
+		self.addChild(lbComponent)
+		
+		lbPointsTitle.fontSize = 17
 		lbPointsTitle.fontColor = UIColor.black
-		lbPointsTitle.position = CGPoint(x: self.frame.width * 0.12, y: self.frame.height * 0.025)
+		loc = lbPointsTitle.frame.size.width/2 + 5
+		lbPointsTitle.position = CGPoint(x: loc, y: self.frame.height * 0.07  - lbComponentTitle.frame.size.height - 10)
 		self.addChild(lbPointsTitle)
 		
-		lbPoints.fontSize = 25
+		lbPoints.fontSize = 17
 		lbPoints.fontColor = UIColor.black
-		lbPoints.position = CGPoint(x: self.frame.width * 0.25, y: self.frame.height * 0.025)
+		loc = lbPointsTitle.frame.size.width + lbPoints.frame.size.width/2 + 10
+		lbPoints.position = CGPoint(x: loc, y: self.frame.height * 0.07  - lbComponentTitle.frame.size.height - 10)
 		self.addChild(lbPoints)
-		
-		lbComponent.fontSize = 20
-		lbComponent.fontColor = UIColor.black
-		lbComponent.position = CGPoint(x: self.frame.width * 0.7, y: self.frame.height * 0.025)
-		lbComponent.text = "DFDFD"
-		self.addChild(lbComponent)
 	}
 	
 	func random() -> CGFloat {
@@ -111,6 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	func addChemical() {
 		//create sprite
 		let chemical = SKSpriteNode(imageNamed: components[componentCount].image)
+		//print(components[componentCount].image)
 		chemical.name = "chemical"
 		
 		//define y axis location
@@ -120,7 +210,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		chemical.position = CGPoint(x: xPos, y: self.frame.height + chemical.size.height/2)
 		
 		//increase index
-		componentCount = (componentCount + 1)%components.count
+		componentCount = (componentCount + 1)%(components.count)
+		
+		if (componentCount == 8) {
+			components.shuffle()
+		}
 		
 		//define speed of chemical
 		let speed = random(min: CGFloat(5.0), max: CGFloat(7.0))
@@ -144,14 +238,72 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		self.addChild(chemical)
 	}
 	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		if let touch = touches.first {
+			let position = touch.location(in: self)
+			
+			if (position.x <= self.frame.size.width/2) {
+				pushPlayer(val: -10)
+			}
+			else {
+				pushPlayer(val: 10)
+			}
+			
+			if pauseButton.contains(position) {
+				if (isGamePaused) {
+					unpauseGame()
+				}
+				else {
+					pauseGame()
+				}
+			}
+		}
+	}
+	
+	func movePlayer() {
+		//define movement amount
+		if let accelerometerData = motionManager.accelerometerData {
+			//apply movement
+			player.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x, dy: 0))
+		}
+	}
+	
+	func pushPlayer(val: Int) {
+		let impulse =  CGVector(dx: val, dy: 0)
+		player.physicsBody?.applyImpulse(impulse)
+	}
+	
+	func pauseGame() {
+		isGamePaused = true
+		self.isPaused = true
+		
+		//diplay image
+		pauseImg = SKSpriteNode(imageNamed: "pause")
+		pauseImg.size = CGSize(width: pauseImg.frame.size.width*2 , height: pauseImg.frame.size.height*2)
+		pauseImg.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+		self.addChild(pauseImg)
+	}
+	
+	func unpauseGame() {
+		isGamePaused = false
+		self.isPaused = false
+		
+		//remove image
+		pauseImg.removeFromParent()
+	}
+	
 	override func update(_ currentTime: CFTimeInterval) {
 		if !gameOver {
+			//move player with acceleroemeter
+			movePlayer()
+			
+			
 			if player.position.y <= 0 {
 				//endGame()
 			}
 			enumerateChildNodes(withName: "chemical") {
 				chemical, _ in
-				if chemical.position.y <= self.frame.height * 0.12 {
+				if chemical.position.y <= self.frame.height * 0.16 {
 					chemical.removeFromParent()
 				}
 			}
@@ -161,14 +313,65 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	func didBegin(_ contact: SKPhysicsContact) {
 		let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
 		switch(contactMask) {
-		case UInt32(sprite1Category) | UInt32(sprite2Category):
-			let secondNode = contact.bodyB.node
-			secondNode?.removeFromParent()
-			//check if obtained chemical is part of compound
-			lbPoints.text = "\(Int(lbPoints.text!)! + 1)"
-			//endGame()
-		default:
-			return
+			case UInt32(sprite1Category) | UInt32(sprite2Category):
+				//delete chemical in collision
+				let secondNode = contact.bodyB.node
+				secondNode?.removeFromParent()
+			
+				//check if collsion chemical is part of solution
+				for name in solutionCompund.keys {
+					if (secondNode!.description.contains(name)){
+						//if components are still missing to complete compound
+						if (solutionCompund[name]! > 0) {
+							//reduce index
+							solutionCompund[name] = solutionCompund[name]! - 1
+							obtainedChemicals += 1
+							//redraw score
+							scoreFill.size = CGSize(width: scoreFill.frame.size.width, height: score.frame.size.height * CGFloat(obtainedChemicals) / CGFloat(totalSolutionCount))
+							scoreFill.position = CGPoint(x: self.frame.width * 0.86, y: self.frame.height * 0.02 + self.frame.height * 0.04 * scoreFill.frame.size.height / score.frame.size.height)
+							scoreFill.removeFromParent()
+							addChild(scoreFill)
+						}
+					}
+				}
+				
+				//check if limit of game was reached
+				if (compundCount == compounds.count) {
+					//endgame
+				}
+			
+				//check if compound is complete
+				if (totalSolutionCount == obtainedChemicals) {
+					//reset score fill
+					scoreFill.position = CGPoint(x: self.frame.width * 0.86, y: self.frame.height * 0.06)
+					scoreFill.size = CGSize(width: score.frame.size.width*0.8, height: 0)
+					scoreFill.removeFromParent()
+					self.addChild(scoreFill)
+					
+					//add point
+					lbPoints.text = "\(Int(lbPoints.text!)! + 1)"
+					
+					//next compound
+					compundCount =  compundCount + 1
+					
+					totalSolutionCount = 0
+					//define new solution
+					for i in compounds[compundCount].chemicalComponents {
+						solutionCompund[i.image] = i.count
+						totalSolutionCount += i.count
+					}
+					
+					//reset variables
+					obtainedChemicals = 0
+					
+					//change label name
+					lbComponent.text = "\(compounds[compundCount].name)"
+					let loc = lbComponentTitle.frame.size.width + lbComponent.frame.size.width/2 + 10
+					lbComponent.position = CGPoint(x: loc, y: self.frame.height * 0.07)
+				}
+			
+			default:
+				return
 		}
 	}
 }
