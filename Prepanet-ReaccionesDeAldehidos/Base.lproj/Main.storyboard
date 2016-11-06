@@ -600,21 +600,33 @@
                                 <rect key="frame" x="0.0" y="516.5" width="187.5" height="150.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapAnswerButtonWithSender:" destination="Rnb-gO-vQ3" eventType="touchUpInside" id="cxU-lw-tUb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gGX-AF-EIW">
                                 <rect key="frame" x="187.5" y="366" width="187.5" height="150.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapAnswerButtonWithSender:" destination="Rnb-gO-vQ3" eventType="touchUpInside" id="NkT-Oc-Y2B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Y7I-j4-MtW">
                                 <rect key="frame" x="187.5" y="516.5" width="187.5" height="150.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapAnswerButtonWithSender:" destination="Rnb-gO-vQ3" eventType="touchUpInside" id="4iz-h0-w9O"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-hF-yME">
                                 <rect key="frame" x="0.0" y="366" width="187.5" height="150.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapAnswerButtonWithSender:" destination="Rnb-gO-vQ3" eventType="touchUpInside" id="vGC-6g-Zp5"/>
+                                </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHy-ho-68h">
                                 <rect key="frame" x="16" y="40" width="343" height="21"/>
@@ -640,13 +652,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghg-EV-b7v">
-                                <rect key="frame" x="316" y="11" width="32" height="30"/>
+                                <rect key="frame" x="317" y="11" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="didTapNextButton:" destination="Rnb-gO-vQ3" eventType="touchUpInside" id="VNO-ba-cV8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-V0-rQC">
+                                <rect key="frame" x="18" y="311" width="341" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -687,14 +706,16 @@
                         <outlet property="btnAnswer2" destination="gGX-AF-EIW" id="VfP-lX-jCH"/>
                         <outlet property="btnAnswer3" destination="Fae-mD-Ci4" id="EDw-4w-pSf"/>
                         <outlet property="btnAnswer4" destination="Y7I-j4-MtW" id="aq6-bX-LNn"/>
+                        <outlet property="btnNext" destination="Ghg-EV-b7v" id="g0O-gf-Osu"/>
                         <outlet property="imgQuestion" destination="rah-Nc-ZTO" id="J44-bT-FHd"/>
+                        <outlet property="lblFeedback" destination="gR4-V0-rQC" id="g26-17-w7m"/>
                         <outlet property="lblQuestionNoImg" destination="e5L-UC-HaW" id="bhu-J8-ren"/>
                         <outlet property="lblQuestionWImg" destination="NHy-ho-68h" id="6oy-Qy-IHf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwU-wh-aYQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="-179"/>
+            <point key="canvasLocation" x="3141.5999999999999" y="-179.46026986506749"/>
         </scene>
     </scenes>
     <resources>

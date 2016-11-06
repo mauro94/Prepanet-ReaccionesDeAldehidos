@@ -15,17 +15,20 @@ class ExamViewController: UIViewController {
     @IBOutlet weak var btnAnswer4: UIButton!
     @IBOutlet weak var btnAnswer3: UIButton!
     @IBOutlet weak var btnAnswer1: UIButton!
+    @IBOutlet weak var btnNext: UIButton!
     
     lazy var buttons: [UIButton] = { return [self.btnAnswer1, self.btnAnswer2, self.btnAnswer3, self.btnAnswer4] }()
     
     @IBOutlet weak var lblQuestionWImg: UILabel!
     @IBOutlet weak var lblQuestionNoImg: UILabel!
     @IBOutlet weak var imgQuestion: UIImageView!
+    @IBOutlet weak var lblFeedback: UILabel!
     
     var difficulty = "Easy"
     var points = 0
     var questions = [Question]()
     var currentQuestionIndex = 0
+    var currentAnswers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,22 +83,50 @@ class ExamViewController: UIViewController {
             // Update buttons
             var answers = deserializeString(value: currentQuestion.wrong, separator: "%")
             answers.append(currentQuestion.right)
-            answers = answers.shuffled()
+            currentAnswers = answers.shuffled()
             
             for (answerIndex, button) in buttons.enumerated() {
-                button.setTitle(answers[answerIndex], for: .normal)
+                button.setTitle(currentAnswers[answerIndex], for: .normal)
                 button.isHidden = false
             }
+            
+            hideUnhideNextAndFeedback()
         }
         else {
             lblQuestionWImg.isHidden = true
             imgQuestion.isHidden = true
-            lblQuestionNoImg.isHidden = false
-            lblQuestionNoImg.text = "¡Terminaste! Tu puntiación es: " + "\(points)" + "/7"
+            lblQuestionNoImg.isHidden = true
+            btnNext.isHidden = true
+            lblFeedback.isHidden = false
+            lblFeedback.text = "¡Terminaste! Tu puntiación es: " + "\(points)" + "/7"
             
             for button in buttons {
                 button.isHidden = true
             }
+        }
+    }
+    
+    func hideUnhideNextAndFeedback() {
+        if lblFeedback.isHidden {
+            lblFeedback.isHidden = false
+            btnNext.isHidden = false
+        }
+        else {
+            lblFeedback.isHidden = true
+            btnNext.isHidden = true
+        }
+    }
+    
+    @IBAction func didTapAnswerButton(sender: UIButton) {
+        hideUnhideNextAndFeedback()
+        let buttonIndex = buttons.index(of: sender)
+        
+        if currentAnswers[buttonIndex!] == questions[currentQuestionIndex].right {
+            points += 1
+            lblFeedback.text = "CORRECTO"
+        }
+        else {
+            lblFeedback.text = "INCORRECTO"
         }
     }
     
