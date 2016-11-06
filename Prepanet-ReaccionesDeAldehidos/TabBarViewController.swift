@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // For realm purposes
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        
         // Do any additional setup after loading the view.
 		self.tabBar.tintColor = UIColor.white
 		self.tabBar.barTintColor = UIColor(red: 42/255, green: 70/255, blue: 101/255, alpha: 1)
