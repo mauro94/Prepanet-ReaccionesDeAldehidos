@@ -9,6 +9,7 @@
 import UIKit
 
 class SelectExamViewController: UIViewController {
+    @IBOutlet weak var sgcDifficulty: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,27 @@ class SelectExamViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let view = segue.destination as! ExamViewController
+        
+        let index = sgcDifficulty.selectedSegmentIndex
+        
+        if index == 0 {
+            view.difficulty = "Easy"
+        }
+        else  if index == 1 {
+            view.difficulty = "Medium"
+        }
+        else {
+            view.difficulty = "Hard"
+        }
+        
+        
     }
-    */
+    
 
 }

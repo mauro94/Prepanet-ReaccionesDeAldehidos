@@ -104,7 +104,7 @@ class SetUpExams {
         let questionFour = QuestionStruct(question: "¿Cuál es el nombre trivial del metanal?", right: "Formaldehído", wrong: "Benzaldehído%Acetaldehído%Acroleína", image: nil)
         let questionFive = QuestionStruct(question: "¿Cuál compuesto se utiliza para la fabricación de plásticos y resinas y en las industrias fotográficas, de exposivos y de colorantes?", right: "Metanal", wrong: "Etanal%Butanal%Benzaldehído", image: nil)
         let questionSix = QuestionStruct(question: "¿Cuál es el nombre trivial del Prop-2-enal", right: "Acroleína", wrong: "Furfural%Baldehína%Acetaldehído", image: nil)
-        let questionSeven = QuestionStruct(question: "Nombre del producto:", right: "Acetaldehído", wrong: "Hexanal%Metanal%Butanal", image: nil)
+        let questionSeven = QuestionStruct(question: "Nombre del producto:", right: "Acetaldehído", wrong: "Hexanal%Metanal%Butanal", image: "qAcetaldehido")
         
         mediumQuestions.append(questionOne)
         mediumQuestions.append(questionTwo)
@@ -136,7 +136,7 @@ class SetUpExams {
         let questionFour = QuestionStruct(question: "¿Cuál compuesto se produce a partir de la hidratación del acetileno?", right: "Acetaldehído", wrong: "Prop-2-enal%Nonanal%Ciclohexanal", image: nil)
         let questionFive = QuestionStruct(question: "¿Cuál compuesto se utiliza para la industria química en muchos procesos (producto inflamable)?", right: "Etanal", wrong: "Hexanal%Pentanal%Ciclopentanal", image: nil)
         let questionSix = QuestionStruct(question: "¿Cuál compuesto se forma en esta reacción?", right: "Ciclohexanocarbaldehído", wrong: "Furan-2-metanal%Benzaldehído%Nonanal", image: "qCiclohexanocarbaldehido")
-        let questionSeven = QuestionStruct(question: "¿Cuál compuesto se forma en esta reacción?", right: "Prop-2-enal", wrong: "Propanal%Butanal%Pentanal", image: nil)
+        let questionSeven = QuestionStruct(question: "¿Cuál compuesto se forma en esta reacción?", right: "Prop-2-enal", wrong: "Propanal%Butanal%Pentanal", image: "qProp2enal")
         
         hardQuestions.append(questionOne)
         hardQuestions.append(questionTwo)
