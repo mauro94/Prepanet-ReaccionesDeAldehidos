@@ -1117,16 +1117,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-V0-rQC">
-                                <rect key="frame" x="37" y="334" width="341" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-V0-rQC">
+                                <rect key="frame" x="20" y="64" width="374" height="342.33333333333331"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gR4-V0-rQC" firstAttribute="leading" secondItem="t7K-b9-MDO" secondAttribute="leadingMargin" id="08V-ff-4KV"/>
                             <constraint firstItem="wcW-hF-yME" firstAttribute="top" secondItem="e5L-UC-HaW" secondAttribute="bottom" constant="20" id="2X6-RZ-pdg"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="width" secondItem="wcW-hF-yME" secondAttribute="height" multiplier="187:150" id="4fu-LJ-iR7"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="width" secondItem="Y7I-j4-MtW" secondAttribute="height" multiplier="187:150" id="5Vc-pl-GtH"/>
@@ -1134,6 +1134,7 @@
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="leading" secondItem="t7K-b9-MDO" secondAttribute="leading" constant="5" id="Aqp-15-TgD"/>
                             <constraint firstItem="rah-Nc-ZTO" firstAttribute="leading" secondItem="t7K-b9-MDO" secondAttribute="leadingMargin" id="CIA-eL-QTK"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="height" secondItem="gGX-AF-EIW" secondAttribute="height" id="FO5-EU-Blg"/>
+                            <constraint firstItem="gGX-AF-EIW" firstAttribute="top" secondItem="gR4-V0-rQC" secondAttribute="bottom" id="Gnn-wG-CQt"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="height" secondItem="Y7I-j4-MtW" secondAttribute="height" id="JKt-BA-lgZ"/>
                             <constraint firstItem="Y7I-j4-MtW" firstAttribute="top" secondItem="gGX-AF-EIW" secondAttribute="bottom" constant="5" id="L3q-Hf-Msv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rah-Nc-ZTO" secondAttribute="trailing" id="NCp-Le-2Kq"/>
@@ -1141,11 +1142,13 @@
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="top" secondItem="wcW-hF-yME" secondAttribute="bottom" constant="5" id="RCi-hW-VQK"/>
                             <constraint firstItem="Ffd-zC-51z" firstAttribute="top" secondItem="Fae-mD-Ci4" secondAttribute="bottom" constant="5" id="USv-Pw-vmA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NHy-ho-68h" secondAttribute="trailing" id="V7g-fr-Gva"/>
+                            <constraint firstItem="gR4-V0-rQC" firstAttribute="top" secondItem="QPa-iO-r7U" secondAttribute="bottom" id="WTG-6P-C51"/>
                             <constraint firstItem="gGX-AF-EIW" firstAttribute="leading" secondItem="wcW-hF-yME" secondAttribute="trailing" constant="5" id="YdC-ff-SB0"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="height" secondItem="wcW-hF-yME" secondAttribute="height" id="b4O-IS-sVQ"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="width" secondItem="gGX-AF-EIW" secondAttribute="width" id="dXl-vs-YZD"/>
                             <constraint firstItem="NHy-ho-68h" firstAttribute="leading" secondItem="t7K-b9-MDO" secondAttribute="leadingMargin" id="gad-W1-FSt"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="width" secondItem="wcW-hF-yME" secondAttribute="width" id="hgV-7d-sFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gR4-V0-rQC" secondAttribute="trailing" id="jdN-4i-yzE"/>
                             <constraint firstItem="Fae-mD-Ci4" firstAttribute="width" secondItem="Y7I-j4-MtW" secondAttribute="width" id="mdO-aC-8hN"/>
                             <constraint firstItem="e5L-UC-HaW" firstAttribute="top" secondItem="QPa-iO-r7U" secondAttribute="bottom" constant="20" id="oBi-3Y-MbK"/>
                             <constraint firstItem="gGX-AF-EIW" firstAttribute="top" secondItem="rah-Nc-ZTO" secondAttribute="bottom" constant="20" id="rVt-Ov-CVn"/>
@@ -1175,7 +1178,7 @@
                         <outlet property="btnAnswer3" destination="Fae-mD-Ci4" id="EDw-4w-pSf"/>
                         <outlet property="btnAnswer4" destination="Y7I-j4-MtW" id="aq6-bX-LNn"/>
                         <outlet property="imgQuestion" destination="rah-Nc-ZTO" id="J44-bT-FHd"/>
-                        <outlet property="lblFeedback" destination="gR4-V0-rQC" id="g26-17-w7m"/>
+                        <outlet property="lblFeedback" destination="gR4-V0-rQC" id="fkP-I4-UxW"/>
                         <outlet property="lblQuestionNoImg" destination="e5L-UC-HaW" id="bhu-J8-ren"/>
                         <outlet property="lblQuestionWImg" destination="NHy-ho-68h" id="6oy-Qy-IHf"/>
                     </connections>

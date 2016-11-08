@@ -19,13 +19,14 @@ class ExamViewController: UIViewController {
 	@IBOutlet weak var barItemEnd: UIBarButtonItem!
 	@IBOutlet weak var barItemNext: UIBarButtonItem!
 	
+	@IBOutlet weak var lblFeedback: UILabel!
+	
     lazy var buttons: [UIButton] = { return [self.btnAnswer1, self.btnAnswer2, self.btnAnswer3, self.btnAnswer4] }()
     
     @IBOutlet weak var lblQuestionWImg: UILabel!
     @IBOutlet weak var lblQuestionNoImg: UILabel!
     @IBOutlet weak var imgQuestion: UIImageView!
-    @IBOutlet weak var lblFeedback: UILabel!
-    
+	
     var difficulty = "Easy"
     var points = 0
     var questions = [Question]()
@@ -99,7 +100,7 @@ class ExamViewController: UIViewController {
                 button.isHidden = false
             }
             
-            hideUnhideNextAndFeedback()
+            hideUnhideNext()
         }
         else {
             lblQuestionWImg.isHidden = true
@@ -107,7 +108,7 @@ class ExamViewController: UIViewController {
             lblQuestionNoImg.isHidden = true
 			barItemNext.isEnabled = false
             lblFeedback.isHidden = false
-            lblFeedback.text = "¡Terminaste! Tu puntiación es: " + "\(points)" + "/7"
+            lblFeedback.text = "¡Terminaste! Tu puntuación es: " + "\(points)" + "/7"
             
             for button in buttons {
                 button.isHidden = true
@@ -115,30 +116,32 @@ class ExamViewController: UIViewController {
         }
     }
     
-    func hideUnhideNextAndFeedback() {
-        if lblFeedback.isHidden {
-            lblFeedback.isHidden = false
+    func hideUnhideNext() {
+        if !barItemNext.isEnabled {
 			barItemNext.isEnabled = true
         }
         else {
-            lblFeedback.isHidden = true
 			barItemNext.isEnabled = false
         }
     }
     
     @IBAction func didTapAnswerButton(sender: UIButton) {
         if !answered {
-            hideUnhideNextAndFeedback()
+            hideUnhideNext()
             let buttonIndex = buttons.index(of: sender)
             
             if currentAnswers[buttonIndex!] == questions[currentQuestionIndex].right {
                 points += 1
-                lblFeedback.text = "CORRECTO"
+				sender.backgroundColor = UIColor(red: 104/255, green: 191/255, blue: 86/255, alpha: 1)
             }
             else {
-                lblFeedback.text = "INCORRECTO"
+				sender.backgroundColor = UIColor(red: 191/255, green: 0/255, blue: 0/255, alpha: 1)
             }
             answered = true
+			
+			for bt in buttons {
+				bt.isEnabled = false
+			}
         }
         
     }
@@ -147,6 +150,11 @@ class ExamViewController: UIViewController {
 	func didTapNextButton(_ sender: UIBarButtonItem) {
         updateLabelsAndButtonsForIndex(questionIndex: currentQuestionIndex + 1)
         answered = false
+		
+		for bt in buttons {
+			bt.backgroundColor = UIColor(red: 42/255, green: 70/255, blue: 101/255, alpha: 1)
+			bt.isEnabled = true
+		}
     }
     
     func didTapEndButton(_ sender: UIBarButtonItem) {
