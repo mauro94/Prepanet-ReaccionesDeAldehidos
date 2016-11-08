@@ -162,6 +162,8 @@
 				1C0E92921DCEC41600BA4A9D /* setUpExamDb.swift */,
 				1C0E928E1DCEC17D00BA4A9D /* question.swift */,
 				1C0E92901DCEC18700BA4A9D /* exam.swift */,
+				349E20C91DC94C7D00EBAAC7 /* chemicalCompound.swift */,
+				349E20C71DC94B8800EBAAC7 /* chemicalComponent.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -259,6 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C0E928F1DCEC17D00BA4A9D /* question.swift in Sources */,
+				349E20CA1DC94C7D00EBAAC7 /* chemicalCompound.swift in Sources */,
+				34C4FC7B1DC9439800120860 /* GameViewController.swift in Sources */,
 				3416914B1DC3B4F0000ACF86 /* ReferenceViewController.swift in Sources */,
 				344F525B1DC7B86A005BC792 /* NavigationController.swift in Sources */,
 				34C689341DCFED8A0049D39E /* Reglas1ViewController.swift in Sources */,
@@ -272,6 +276,7 @@
 				349E20C81DC94B8800EBAAC7 /* chemicalComponent.swift in Sources */,
 				34517A7E1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift in Sources */,
 				1C4DC8741DCFF1A60082AA28 /* SelectExamViewController.swift in Sources */,
+				34A803D81DD0FC7B003E23A3 /* GameRulesViewController.swift in Sources */,
 				34BC78FB1DC93318004128F3 /* gameData.swift in Sources */,
 				344F52591DC79B66005BC792 /* TabBarViewController.swift in Sources */,
 				341691371DC3AFBD000ACF86 /* AppDelegate.swift in Sources */,
