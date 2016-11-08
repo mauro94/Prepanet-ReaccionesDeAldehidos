@@ -15,8 +15,10 @@ class ExamViewController: UIViewController {
     @IBOutlet weak var btnAnswer4: UIButton!
     @IBOutlet weak var btnAnswer3: UIButton!
     @IBOutlet weak var btnAnswer1: UIButton!
-    @IBOutlet weak var btnNext: UIButton!
-    
+	
+	@IBOutlet weak var barItemEnd: UIBarButtonItem!
+	@IBOutlet weak var barItemNext: UIBarButtonItem!
+	
     lazy var buttons: [UIButton] = { return [self.btnAnswer1, self.btnAnswer2, self.btnAnswer3, self.btnAnswer4] }()
     
     @IBOutlet weak var lblQuestionWImg: UILabel!
@@ -47,9 +49,14 @@ class ExamViewController: UIViewController {
         questions = exam.questions.shuffled()
         
         updateLabelsAndButtonsForIndex(questionIndex: 0)
+		
+		barItemNext.target = self
+		barItemNext.action = #selector(didTapNextButton(_:))
+		
+		barItemEnd.target = self
+		barItemEnd.action = #selector(didTapEndButton(_:))
         
         // Do any additional setup after loading the view.
-		self.title = "Examen"
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +66,7 @@ class ExamViewController: UIViewController {
     
     func updateLabelsAndButtonsForIndex(questionIndex : Int) {
         if questionIndex < questions.count - 1{
+			self.title = "Pregunta " + "\(questionIndex+1)"
             currentQuestionIndex = questionIndex
             let currentQuestion = questions[questionIndex]
             if currentQuestion.image != nil {
@@ -96,7 +104,7 @@ class ExamViewController: UIViewController {
             lblQuestionWImg.isHidden = true
             imgQuestion.isHidden = true
             lblQuestionNoImg.isHidden = true
-            btnNext.isHidden = true
+			barItemNext.isEnabled = false
             lblFeedback.isHidden = false
             lblFeedback.text = "¡Terminaste! Tu puntiación es: " + "\(points)" + "/7"
             
@@ -109,11 +117,11 @@ class ExamViewController: UIViewController {
     func hideUnhideNextAndFeedback() {
         if lblFeedback.isHidden {
             lblFeedback.isHidden = false
-            btnNext.isHidden = false
+			barItemNext.isEnabled = true
         }
         else {
             lblFeedback.isHidden = true
-            btnNext.isHidden = true
+			barItemNext.isEnabled = false
         }
     }
     
@@ -131,11 +139,11 @@ class ExamViewController: UIViewController {
     }
     
     
-    @IBAction func didTapNextButton(_ sender: UIButton) {
+	func didTapNextButton(_ sender: UIBarButtonItem) {
         updateLabelsAndButtonsForIndex(questionIndex: currentQuestionIndex + 1)
     }
     
-    @IBAction func didTapEndButton(_ sender: UIButton) {
+    func didTapEndButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     /*

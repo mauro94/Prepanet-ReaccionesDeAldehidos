@@ -11,6 +11,7 @@ import RealmSwift
 
 class gameData: Object {
 	dynamic var maxPoints = 0
+	dynamic var rulesSeen = false
 	var chemicalComponents = List<chemicalComponent>()
 	var chemicalCompunds = List<chemicalCompound>()
 }

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GameMenuViewController: UIViewController, PageControllerDelegate {
 	//outlets
 	@IBOutlet weak var pagesView: UIView!
 	@IBOutlet weak var pageControl: UIPageControl!
+	@IBOutlet weak var btPlay: UIButton!
 
+	//variables
+	var results: Results<gameData>!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,18 @@ class GameMenuViewController: UIViewController, PageControllerDelegate {
 		pageControl.numberOfPages = 3
 		pageControl.pageIndicatorTintColor = UIColor(red: 42/255, green: 70/255, blue: 101/255, alpha: 0.5)
 		pageControl.currentPageIndicatorTintColor = UIColor(red: 42/255, green: 70/255, blue: 101/255, alpha: 1)
+		
+		let realm = try! Realm()
+		
+		results = realm.objects(gameData.self)
+		
+		if !(results.first?.rulesSeen)! {
+			btPlay.isEnabled = false
+			btPlay.setTitle("Leer instrucciones", for: .normal)
+		}
+		else {
+			btPlay.setTitle("Jugar", for: .normal)
+		}
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,5 +58,18 @@ class GameMenuViewController: UIViewController, PageControllerDelegate {
 	
 	func updatePageController(index: Int) {
 		pageControl.currentPage = index
+		
+		if !(results.first?.rulesSeen)! {
+			if (index == 2) {
+				let realm = try! Realm()
+				
+				try! realm.write {
+					results.first?.rulesSeen = true
+				}
+				
+				btPlay.isEnabled = true
+				btPlay.setTitle("Jugar", for: .normal)
+			}
+		}
 	}
 }
