@@ -36,7 +36,8 @@ extension UIImage {
 }
 
 protocol GameSceneDelegate {
-	func gameOver()
+	func gameOver(points: Int)
+	func gameComplete(points: Int)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -66,6 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	var totalSolutionCount: Int = 0
 	var obtainedChemicals: Int = 0
 	var isGamePaused: Bool = false
+	var chemicalAccepted: Bool = false
 	
 	//motion variables
 	var motionManager: CMMotionManager!
@@ -267,7 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			}
 			
 			if (exitButton.contains(position)) {
-				gameSceneDelegate?.gameOver()
+				gameSceneDelegate?.gameOver(points: Int(lbPoints.text!)!)
 			}
 		}
 	}
@@ -276,7 +278,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		//define movement amount
 		if let accelerometerData = motionManager.accelerometerData {
 			//apply movement
-			player.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x, dy: 0))
+			player.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x*1.5, dy: 0))
 		}
 	}
 	
@@ -290,10 +292,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		self.isPaused = true
 		
 		//diplay image
-		pauseImg.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+		pauseImg.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + pauseImg.frame.size.height/2)
+		pauseImg.zPosition = 3
 		self.addChild(pauseImg)
 		
-		exitButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - pauseImg.frame.size.height - 10)
+		exitButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - pauseImg.frame.size.height/2)
+		exitButton.zPosition = 3
 		self.addChild(exitButton)
 
 	}
@@ -322,6 +326,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 					chemical.removeFromParent()
 				}
 			}
+			
+			if (isGamePaused) {
+				unpauseGame()
+				pauseGame()
+			}
 		}
 	}
 	
@@ -330,12 +339,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		switch(contactMask) {
 			case UInt32(sprite1Category) | UInt32(sprite2Category):
 				//delete chemical in collision
-				let secondNode = contact.bodyB.node
-				secondNode?.removeFromParent()
+				let chemicalNode = contact.bodyB.node
+				chemicalNode?.removeFromParent()
 			
 				//check if collsion chemical is part of solution
 				for name in solutionCompund.keys {
-					if (secondNode!.description.contains(name)){
+					if (chemicalNode!.description.contains(name)){
 						//if components are still missing to complete compound
 						if (solutionCompund[name]! > 0) {
 							//reduce index
@@ -346,13 +355,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 							scoreFill.position = CGPoint(x: self.frame.width * 0.86, y: self.frame.height * 0.02 + self.frame.height * 0.04 * scoreFill.frame.size.height / score.frame.size.height)
 							scoreFill.removeFromParent()
 							addChild(scoreFill)
+							//add point
+							lbPoints.text = "\(Int(lbPoints.text!)! + 3)"
+							//solution found
+							chemicalAccepted = true
 						}
 					}
 				}
 				
+				if (!chemicalAccepted) {
+					lbPoints.text = "\(Int(lbPoints.text!)! - 1)"
+				}
+				chemicalAccepted = false
+				
 				//check if limit of game was reached
 				if (compundCount == compounds.count) {
-					//endgame
+					//message game completed
+					gameSceneDelegate?.gameComplete(points: Int(lbPoints.text!)!)
 				}
 			
 				//check if compound is complete
@@ -364,7 +383,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 					self.addChild(scoreFill)
 					
 					//add point
-					lbPoints.text = "\(Int(lbPoints.text!)! + 1)"
+					lbPoints.text = "\(Int(lbPoints.text!)! + 10)"
 					
 					//next compound
 					compundCount =  compundCount + 1
