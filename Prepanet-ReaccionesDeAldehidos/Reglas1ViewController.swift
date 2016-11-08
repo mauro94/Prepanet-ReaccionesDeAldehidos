@@ -1,20 +1,23 @@
 //
-//  GameViewController.swift
+//  Reglas1ViewController.swift
 //  Prepanet-ReaccionesDeAldehidos
 //
-//  Created by Mauro Amarante on 10/31/16.
+//  Created by Mauro Amarante on 11/6/16.
 //  Copyright © 2016 Mauro Amarante. All rights reserved.
 //
 
 import UIKit
 
-class GameViewController: UIViewController {
-
+class Reglas1ViewController: UIViewController {
+	@IBOutlet weak var welcomeView: UIView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		self.title = "Juego"
+		//let backgroundImage = UIImageView(image: UIImage(named: "gameBackground"))
+		//backgroundImage.frame.size = welcomeView.frame.size
+		//welcomeView.addSubview(backgroundImage)
     }
 
     override func didReceiveMemoryWarning() {
