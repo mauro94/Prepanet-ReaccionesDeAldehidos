@@ -31,6 +31,7 @@ class ExamViewController: UIViewController {
     var questions = [Question]()
     var currentQuestionIndex = 0
     var currentAnswers = [String]()
+    var answered = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,25 +127,31 @@ class ExamViewController: UIViewController {
     }
     
     @IBAction func didTapAnswerButton(sender: UIButton) {
-        hideUnhideNextAndFeedback()
-        let buttonIndex = buttons.index(of: sender)
+        if !answered {
+            hideUnhideNextAndFeedback()
+            let buttonIndex = buttons.index(of: sender)
+            
+            if currentAnswers[buttonIndex!] == questions[currentQuestionIndex].right {
+                points += 1
+                lblFeedback.text = "CORRECTO"
+            }
+            else {
+                lblFeedback.text = "INCORRECTO"
+            }
+            answered = true
+        }
         
-        if currentAnswers[buttonIndex!] == questions[currentQuestionIndex].right {
-            points += 1
-            lblFeedback.text = "CORRECTO"
-        }
-        else {
-            lblFeedback.text = "INCORRECTO"
-        }
     }
     
     
 	func didTapNextButton(_ sender: UIBarButtonItem) {
         updateLabelsAndButtonsForIndex(questionIndex: currentQuestionIndex + 1)
+        answered = false
     }
     
     func didTapEndButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+        answered = false
     }
     /*
     // MARK: - Navigation
