@@ -802,8 +802,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se mostrara una pregunta y se debe seleccionar la respuesta correcta. EXPLICAR MAS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb0-8A-5Bs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb0-8A-5Bs">
                                 <rect key="frame" x="20" y="110" width="339" height="20.333333333333343"/>
+                                <string key="text">Selecciona la dificultad del examen en el botón de abajo. En el examen, se te harán 7 preguntas con cuatro opciones cada una. Selecciona la que consideres correcta. Posteriormente dale click al botón "Siguiente" en la parte superior derecha para avanzar a la siguiente pregunta. Al terminar se mostrará tu puntuación. ¡Suerte!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
