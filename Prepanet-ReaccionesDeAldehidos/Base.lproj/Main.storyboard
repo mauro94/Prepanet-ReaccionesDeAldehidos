@@ -1020,10 +1020,10 @@
             </objects>
             <point key="canvasLocation" x="1572" y="552.77361319340332"/>
         </scene>
-        <!--View Controller-->
+        <!--ReferencePDF View Controller-->
         <scene sceneID="LAW-us-JtR">
             <objects>
-                <viewController id="rfR-oa-nBJ" sceneMemberID="viewController">
+                <viewController id="rfR-oa-nBJ" customClass="ReferencePDFViewController" customModule="Prepanet_ReaccionesDeAldehidos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dMo-me-0NF"/>
                         <viewControllerLayoutGuide type="bottom" id="LGc-aW-9rt"/>
@@ -1031,12 +1031,27 @@
                     <view key="view" contentMode="scaleToFill" id="3o5-MF-NuA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFy-vj-nNg">
+                                <rect key="frame" x="64" y="637" width="3" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwt-pF-o2f">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="dwt-pF-o2f" id="cDV-XD-ENH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LxV-4z-afh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3109" y="-884"/>
+            <point key="canvasLocation" x="3108.6956521739135" y="-884.51086956521749"/>
         </scene>
         <!--Exam View Controller-->
         <scene sceneID="syP-oJ-luc">

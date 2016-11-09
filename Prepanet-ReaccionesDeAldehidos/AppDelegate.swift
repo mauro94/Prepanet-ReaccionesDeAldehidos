@@ -24,14 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		if (resultGame.count == 0) {
 			// Initializae database
-			setupDB()
+			_ = setupDB()
 		}
 		
         let resultExam = realm.objects(Exam.self)
         
         if (resultExam.count == 0) {
             // Initializae database
-            SetUpExams()
+            _ = SetUpExams()
         }
         
 		return true

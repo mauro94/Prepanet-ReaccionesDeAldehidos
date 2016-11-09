@@ -14,6 +14,10 @@ private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, ri
 
 class ReferenceViewController: UICollectionViewController {
 
+    let sectionsCodes = ["Ald", "Nom", "Rea", "Us", "Sin"]
+    let sectionNames = ["Aldehídos", "Nomenclatura", "Reacciones", "Usos", "Síntesis"]
+    let sectionNumbers = ["1", "2", "3", "4", "5"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,15 +35,21 @@ class ReferenceViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let view = segue.destination as! ReferencePDFViewController
+        
+        let cell = sender as! ReferenceCollectionViewCell
+        
+        view.section = cell.lbCode.text!
+        
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
     // MARK: UICollectionViewDataSource
 
@@ -51,12 +61,18 @@ class ReferenceViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 8
+        return 5
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ReferenceCollectionViewCell
 		
+        let index = indexPath.row
+        
+        cell.lbCode.text = sectionsCodes[index]
+        cell.lbName.text = sectionNames[index]
+        cell.lbNumber.text = sectionNumbers[index]
+        
 		//modify cell border and background
 		cell.layer.borderWidth = 3
 		cell.layer.borderColor = UIColor.black.cgColor

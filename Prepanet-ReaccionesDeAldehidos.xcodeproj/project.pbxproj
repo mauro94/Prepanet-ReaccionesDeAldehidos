@@ -11,6 +11,12 @@
 		1C0E92911DCEC18700BA4A9D /* exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E92901DCEC18700BA4A9D /* exam.swift */; };
 		1C0E92931DCEC41600BA4A9D /* setUpExamDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E92921DCEC41600BA4A9D /* setUpExamDb.swift */; };
 		1C4DC8741DCFF1A60082AA28 /* SelectExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DC8731DCFF1A60082AA28 /* SelectExamViewController.swift */; };
+		1C4DC89D1DD3E4A70082AA28 /* Ald.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DC8981DD3E4A70082AA28 /* Ald.pdf */; };
+		1C4DC89E1DD3E4A70082AA28 /* Nom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DC8991DD3E4A70082AA28 /* Nom.pdf */; };
+		1C4DC89F1DD3E4A70082AA28 /* Rea.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DC89A1DD3E4A70082AA28 /* Rea.pdf */; };
+		1C4DC8A01DD3E4A70082AA28 /* Us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DC89B1DD3E4A70082AA28 /* Us.pdf */; };
+		1C4DC8A11DD3E4A70082AA28 /* Sin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DC89C1DD3E4A70082AA28 /* Sin.pdf */; };
+		1C4DC8A31DD3E5180082AA28 /* ReferencePDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DC8A21DD3E5180082AA28 /* ReferencePDFViewController.swift */; };
 		341691371DC3AFBD000ACF86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341691361DC3AFBD000ACF86 /* AppDelegate.swift */; };
 		3416913E1DC3AFBD000ACF86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3416913C1DC3AFBD000ACF86 /* Main.storyboard */; };
 		341691401DC3AFBD000ACF86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3416913F1DC3AFBD000ACF86 /* Assets.xcassets */; };
@@ -57,6 +63,12 @@
 		1C0E92901DCEC18700BA4A9D /* exam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = exam.swift; sourceTree = "<group>"; };
 		1C0E92921DCEC41600BA4A9D /* setUpExamDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpExamDb.swift; sourceTree = "<group>"; };
 		1C4DC8731DCFF1A60082AA28 /* SelectExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectExamViewController.swift; path = ../SelectExamViewController.swift; sourceTree = "<group>"; };
+		1C4DC8981DD3E4A70082AA28 /* Ald.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Ald.pdf; sourceTree = "<group>"; };
+		1C4DC8991DD3E4A70082AA28 /* Nom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Nom.pdf; sourceTree = "<group>"; };
+		1C4DC89A1DD3E4A70082AA28 /* Rea.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Rea.pdf; sourceTree = "<group>"; };
+		1C4DC89B1DD3E4A70082AA28 /* Us.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Us.pdf; sourceTree = "<group>"; };
+		1C4DC89C1DD3E4A70082AA28 /* Sin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sin.pdf; sourceTree = "<group>"; };
+		1C4DC8A21DD3E5180082AA28 /* ReferencePDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencePDFViewController.swift; sourceTree = "<group>"; };
 		341691331DC3AFBD000ACF86 /* Prepanet-ReaccionesDeAldehidos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prepanet-ReaccionesDeAldehidos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		341691361DC3AFBD000ACF86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3416913D1DC3AFBD000ACF86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +170,12 @@
 		3440E2951DD27B7A00C94697 /* Reference tab */ = {
 			isa = PBXGroup;
 			children = (
+				1C4DC8981DD3E4A70082AA28 /* Ald.pdf */,
+				1C4DC8991DD3E4A70082AA28 /* Nom.pdf */,
+				1C4DC89A1DD3E4A70082AA28 /* Rea.pdf */,
+				1C4DC89B1DD3E4A70082AA28 /* Us.pdf */,
+				1C4DC89C1DD3E4A70082AA28 /* Sin.pdf */,
+				1C4DC8A21DD3E5180082AA28 /* ReferencePDFViewController.swift */,
 				34517A7D1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift */,
 				3416914A1DC3B4F0000ACF86 /* ReferenceViewController.swift */,
 			);
@@ -249,8 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				341691431DC3AFBD000ACF86 /* LaunchScreen.storyboard in Resources */,
+				1C4DC8A01DD3E4A70082AA28 /* Us.pdf in Resources */,
+				1C4DC89E1DD3E4A70082AA28 /* Nom.pdf in Resources */,
 				341691401DC3AFBD000ACF86 /* Assets.xcassets in Resources */,
+				1C4DC89F1DD3E4A70082AA28 /* Rea.pdf in Resources */,
+				1C4DC89D1DD3E4A70082AA28 /* Ald.pdf in Resources */,
 				3416913E1DC3AFBD000ACF86 /* Main.storyboard in Resources */,
+				1C4DC8A11DD3E4A70082AA28 /* Sin.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +314,7 @@
 				34BC78C41DC854F0004128F3 /* GameMenuViewController.swift in Sources */,
 				349E20C81DC94B8800EBAAC7 /* chemicalComponent.swift in Sources */,
 				34517A7E1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift in Sources */,
+				1C4DC8A31DD3E5180082AA28 /* ReferencePDFViewController.swift in Sources */,
 				1C4DC8741DCFF1A60082AA28 /* SelectExamViewController.swift in Sources */,
 				34A803D81DD0FC7B003E23A3 /* GameRulesViewController.swift in Sources */,
 				34BC78FB1DC93318004128F3 /* gameData.swift in Sources */,
