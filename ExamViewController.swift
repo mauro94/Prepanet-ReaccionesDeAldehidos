@@ -37,6 +37,7 @@ class ExamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         points = 0
+        currentQuestionIndex = 0
         
         let realm = try! Realm()
         var exam = Exam()
@@ -67,7 +68,7 @@ class ExamViewController: UIViewController {
     }
     
     func updateLabelsAndButtonsForIndex(questionIndex : Int) {
-        if questionIndex < questions.count - 1{
+        if questionIndex < questions.count {
 			self.title = "Pregunta " + "\(questionIndex+1)"
             currentQuestionIndex = questionIndex
             let currentQuestion = questions[questionIndex]
@@ -108,7 +109,7 @@ class ExamViewController: UIViewController {
             lblQuestionNoImg.isHidden = true
 			barItemNext.isEnabled = false
             lblFeedback.isHidden = false
-            lblFeedback.text = "¡Terminaste! Tu puntuación es: " + "\(points)" + "/7"
+            lblFeedback.text = "¡Terminaste! Tu puntuación es: " + "\(points)" + "/" + "\(questions.count)"
             
             for button in buttons {
                 button.isHidden = true
@@ -143,7 +144,6 @@ class ExamViewController: UIViewController {
 				bt.isEnabled = false
 			}
         }
-        
     }
     
     
