@@ -103,7 +103,7 @@ class SetUpExams {
         let questionThree = QuestionStruct(question: "¿Cuántos carbonos tiene el Ciclohexanocarbaldehído?", right: "7", wrong: "6%9%5", image: nil)
         let questionFour = QuestionStruct(question: "¿Cuál es el nombre trivial del metanal?", right: "Formaldehído", wrong: "Benzaldehído%Acetaldehído%Acroleína", image: nil)
         let questionFive = QuestionStruct(question: "¿Cuál compuesto se utiliza para la fabricación de plásticos y resinas y en las industrias fotográficas, de exposivos y de colorantes?", right: "Metanal", wrong: "Etanal%Butanal%Benzaldehído", image: nil)
-        let questionSix = QuestionStruct(question: "¿Cuál es el nombre trivial del Prop-2-enal", right: "Acroleína", wrong: "Furfural%Baldehína%Acetaldehído", image: nil)
+        let questionSix = QuestionStruct(question: "¿Cuál es el nombre trivial del Prop-2-enal?", right: "Acroleína", wrong: "Furfural%Baldehína%Acetaldehído", image: nil)
         let questionSeven = QuestionStruct(question: "Nombre del producto:", right: "Acetaldehído", wrong: "Hexanal%Metanal%Butanal", image: "qAcetaldehido")
         
         mediumQuestions.append(questionOne)
@@ -131,7 +131,7 @@ class SetUpExams {
         var hardQuestions = [QuestionStruct]()
         
         let questionOne = QuestionStruct(question: "¿Cuál compuesto se utiliza para la fabricación de plásticos, herbicidas y pesticidas?", right: "Furan-2-metanal", wrong: "Benzaldehído%Prop-2-enal%Nonanal", image: nil)
-        let questionTwo = QuestionStruct(question: "¿Cuál compuesto se utiliza para la fabricación de plásticos y productos acrílicos en la industria textil y farmacéutica?", right: "Prop-2-enañ", wrong: "Decanal%Butanal%Ciclohexanal", image: nil)
+        let questionTwo = QuestionStruct(question: "¿Cuál compuesto se utiliza para la fabricación de plásticos y productos acrílicos en la industria textil y farmacéutica?", right: "Prop-2-enal", wrong: "Decanal%Butanal%Ciclohexanal", image: nil)
         let questionThree = QuestionStruct(question: "¿Cuál compuesto se produce a partir de glicerina? (Deshidratación)", right: "Prop-2-enal", wrong: "Nonanal%Acetaldehído%Ciclohexanal", image: nil)
         let questionFour = QuestionStruct(question: "¿Cuál compuesto se produce a partir de la hidratación del acetileno?", right: "Acetaldehído", wrong: "Prop-2-enal%Nonanal%Ciclohexanal", image: nil)
         let questionFive = QuestionStruct(question: "¿Cuál compuesto se utiliza para la industria química en muchos procesos (producto inflamable)?", right: "Etanal", wrong: "Hexanal%Pentanal%Ciclopentanal", image: nil)

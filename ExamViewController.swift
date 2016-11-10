@@ -27,7 +27,7 @@ class ExamViewController: UIViewController {
     @IBOutlet weak var lblQuestionNoImg: UILabel!
     @IBOutlet weak var imgQuestion: UIImageView!
 	
-    var difficulty = "Easy"
+    var difficulty = ""
     var points = 0
     var questions = [Question]()
     var currentQuestionIndex = 0

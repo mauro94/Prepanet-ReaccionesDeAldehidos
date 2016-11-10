@@ -29,20 +29,20 @@ class SelectExamViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! NavigationController
+        let navView = segue.destination as! NavigationController
+        let view = navView.topViewController as! ExamViewController
         
         let index = sgcDifficulty.selectedSegmentIndex
         
         if index == 0 {
             view.difficulty = "Easy"
         }
-        else  if index == 1 {
+        else if index == 1 {
             view.difficulty = "Medium"
         }
         else {
             view.difficulty = "Hard"
         }
-        
         
     }
     
