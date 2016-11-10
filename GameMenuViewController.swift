@@ -33,7 +33,7 @@ class GameMenuViewController: UIViewController, PageControllerDelegate {
 		
 		if !(results.first?.rulesSeen)! {
 			btPlay.isEnabled = false
-			btPlay.setTitle("Leer instrucciones", for: .normal)
+			btPlay.setTitle("Leer instrucciones para jugar", for: .normal)
 		}
 		else {
 			btPlay.setTitle("Jugar", for: .normal)

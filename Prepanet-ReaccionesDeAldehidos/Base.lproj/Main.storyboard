@@ -884,25 +884,25 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="jxs-ZH-9S2"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="random #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIO-R5-66R">
-                                            <rect key="frame" x="8" y="98" width="121" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="8" y="88" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hx-h4-n3B">
-                                            <rect key="frame" x="8" y="29" width="121" height="48"/>
+                                            <rect key="frame" x="8" y="29" width="121" height="33"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy6-ec-jSW">
-                                            <rect key="frame" x="8" y="77" width="121" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="8" y="62" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -916,19 +916,20 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="BIO-R5-66R" secondAttribute="trailing" id="ONz-QA-uWh"/>
                                     <constraint firstItem="3Hx-h4-n3B" firstAttribute="top" secondItem="uOV-7n-KVC" secondAttribute="bottom" id="VfG-mm-aBH"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="cy6-ec-jSW" secondAttribute="trailing" id="YCb-aL-hci"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="BIO-R5-66R" secondAttribute="bottom" id="afm-0P-qgu"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="BIO-R5-66R" secondAttribute="bottom" constant="10" id="afm-0P-qgu"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="uOV-7n-KVC" secondAttribute="trailing" id="bAY-nd-pYe"/>
                                     <constraint firstAttribute="topMargin" secondItem="uOV-7n-KVC" secondAttribute="top" id="mEv-Ty-Es0"/>
                                     <constraint firstAttribute="leadingMargin" secondItem="3Hx-h4-n3B" secondAttribute="leading" id="mcM-vp-X1c"/>
-                                    <constraint firstItem="BIO-R5-66R" firstAttribute="top" secondItem="cy6-ec-jSW" secondAttribute="bottom" id="pMz-Ic-zsI"/>
+                                    <constraint firstItem="BIO-R5-66R" firstAttribute="top" secondItem="cy6-ec-jSW" secondAttribute="bottom" constant="5" id="pMz-Ic-zsI"/>
                                     <constraint firstAttribute="leadingMargin" secondItem="BIO-R5-66R" secondAttribute="leading" id="paE-LP-yza"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="3Hx-h4-n3B" secondAttribute="trailing" id="qOS-hf-KRh"/>
                                     <constraint firstItem="BIO-R5-66R" firstAttribute="height" secondItem="uOV-7n-KVC" secondAttribute="height" id="yLB-52-A61"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="lbCode" destination="3Hx-h4-n3B" id="Wxm-5s-fiC"/>
-                                    <outlet property="lbName" destination="BIO-R5-66R" id="iJY-nw-Wkl"/>
+                                    <outlet property="lbName" destination="cy6-ec-jSW" id="aRr-2n-lwh"/>
                                     <outlet property="lbNumber" destination="uOV-7n-KVC" id="eqT-xj-tmW"/>
+                                    <outlet property="lbRandomNumber" destination="BIO-R5-66R" id="cSW-Ai-QtC"/>
                                     <segue destination="rfR-oa-nBJ" kind="show" id="5jK-gd-MmS"/>
                                 </connections>
                             </collectionViewCell>
@@ -1037,13 +1038,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwt-pF-o2f">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwt-pF-o2f">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dwt-pF-o2f" firstAttribute="top" secondItem="dMo-me-0NF" secondAttribute="bottom" id="13E-Fs-Coa"/>
+                            <constraint firstItem="LGc-aW-9rt" firstAttribute="top" secondItem="dwt-pF-o2f" secondAttribute="bottom" id="FdP-xv-xRx"/>
+                            <constraint firstItem="dwt-pF-o2f" firstAttribute="leading" secondItem="3o5-MF-NuA" secondAttribute="leading" id="OJx-lG-FNx"/>
+                            <constraint firstAttribute="trailing" secondItem="dwt-pF-o2f" secondAttribute="trailing" id="YAY-5G-Laa"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="webView" destination="dwt-pF-o2f" id="cDV-XD-ENH"/>

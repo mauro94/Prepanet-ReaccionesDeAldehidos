@@ -12,4 +12,5 @@ class ReferenceCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var lbNumber: UILabel!
 	@IBOutlet weak var lbCode: UILabel!
 	@IBOutlet weak var lbName: UILabel!
+	@IBOutlet weak var lbRandomNumber: UILabel!
 }

@@ -17,6 +17,7 @@ class ReferenceViewController: UICollectionViewController {
     let sectionsCodes = ["Ald", "Nom", "Rea", "Us", "Sin"]
     let sectionNames = ["Aldehídos", "Nomenclatura", "Reacciones", "Usos", "Síntesis"]
     let sectionNumbers = ["1", "2", "3", "4", "5"]
+	let randomNumbers = ["1.364232", "0.432425", "0.765356", "2.3446", "1.3265362"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,7 @@ class ReferenceViewController: UICollectionViewController {
         cell.lbCode.text = sectionsCodes[index]
         cell.lbName.text = sectionNames[index]
         cell.lbNumber.text = sectionNumbers[index]
+		cell.lbRandomNumber.text = randomNumbers[index]
         
 		//modify cell border and background
 		cell.layer.borderWidth = 3
