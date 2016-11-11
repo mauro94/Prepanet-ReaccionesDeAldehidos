@@ -23,6 +23,7 @@
 		341691431DC3AFBD000ACF86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341691411DC3AFBD000ACF86 /* LaunchScreen.storyboard */; };
 		3416914B1DC3B4F0000ACF86 /* ReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3416914A1DC3B4F0000ACF86 /* ReferenceViewController.swift */; };
 		3423FD151DCFC5F700450539 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423FD141DCFC5F700450539 /* PageViewController.swift */; };
+		343F46A01DD4E4220062BD0A /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343F469F1DD4E4220062BD0A /* CreditsViewController.swift */; };
 		344F52591DC79B66005BC792 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F52581DC79B66005BC792 /* TabBarViewController.swift */; };
 		344F525B1DC7B86A005BC792 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F525A1DC7B86A005BC792 /* NavigationController.swift */; };
 		34517A7E1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34517A7D1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift */; };
@@ -77,6 +78,7 @@
 		341691441DC3AFBD000ACF86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3416914A1DC3B4F0000ACF86 /* ReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceViewController.swift; sourceTree = "<group>"; };
 		3423FD141DCFC5F700450539 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		343F469F1DD4E4220062BD0A /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		344F52581DC79B66005BC792 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		344F525A1DC7B86A005BC792 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		34517A7D1DC3C2E300E71017 /* ReferenceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		3440E2961DD27C9500C94697 /* Information tab */ = {
 			isa = PBXGroup;
 			children = (
+				343F469F1DD4E4220062BD0A /* CreditsViewController.swift */,
 				34A3E7F21DC814E700E54712 /* InformationViewController.swift */,
 			);
 			name = "Information tab";
@@ -307,6 +310,7 @@
 				344F525B1DC7B86A005BC792 /* NavigationController.swift in Sources */,
 				34A3E7F31DC814E700E54712 /* InformationViewController.swift in Sources */,
 				1C0E92911DCEC18700BA4A9D /* exam.swift in Sources */,
+				343F46A01DD4E4220062BD0A /* CreditsViewController.swift in Sources */,
 				1C0E92931DCEC41600BA4A9D /* setUpExamDb.swift in Sources */,
 				34BC78C21DC846D2004128F3 /* ExamViewController.swift in Sources */,
 				34C4FC811DC9443900120860 /* GameScene.swift in Sources */,

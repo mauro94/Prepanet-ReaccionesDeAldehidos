@@ -278,7 +278,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		//define movement amount
 		if let accelerometerData = motionManager.accelerometerData {
 			//apply movement
-			player.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x*1.5, dy: 0))
+			player.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x*2.5, dy: 0))
 		}
 	}
 	
